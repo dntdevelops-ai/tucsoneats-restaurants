@@ -1,0 +1,205 @@
+.section {
+  background: var(--cream);
+  padding: 80px 40px;
+  scroll-margin-top: 80px;
+}
+
+.label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin-bottom: 10px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 800;
+  color: var(--green-dark);
+  margin-bottom: 12px;
+  line-height: 1.1;
+}
+
+.desc {
+  font-size: 16px;
+  color: var(--gray);
+  line-height: 1.7;
+  max-width: 560px;
+  margin-bottom: 32px;
+}
+
+/* Table wrapper — horizontal scroll on mobile */
+.tableWrap {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--cream-dark);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+.table {
+  width: 100%;
+  min-width: 700px;
+  border-collapse: collapse;
+  background: var(--white);
+}
+
+/* Header row */
+.thEmpty {
+  background: var(--white);
+  width: 180px;
+  padding: 16px;
+}
+
+.thCompetitor {
+  background: var(--black);
+  color: white;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 16px;
+  text-align: center;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.thTe {
+  background: var(--green);
+  color: white;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 14px 16px;
+  text-align: center;
+  border-left: 2px solid var(--green-mid);
+  position: relative;
+}
+
+.teBadge {
+  display: block;
+  background: var(--pink);
+  color: white;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  margin: 4px auto 0;
+  width: fit-content;
+}
+
+/* Group header rows */
+.groupRow {}
+
+.groupCell {
+  background: var(--cream-dark);
+  padding: 10px 16px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gray);
+  border-top: 1px solid var(--cream-dark);
+}
+
+/* Data rows */
+.dataRow:nth-child(even) td {
+  background: var(--white);
+}
+
+.dataRow:nth-child(odd) td {
+  background: var(--cream);
+}
+
+.featureCell {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--black);
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--cream-dark);
+  max-width: 180px;
+  line-height: 1.45;
+  vertical-align: top;
+}
+
+.competitorCell {
+  font-size: 12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--cream-dark);
+  border-left: 1px solid var(--cream-dark);
+  text-align: center;
+  line-height: 1.5;
+  vertical-align: top;
+}
+
+.competitorCell.bad  { color: #c0392b; }
+.competitorCell.warn { color: var(--adobe); }
+.competitorCell.good { color: var(--green); }
+
+.teCell {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--green-dark);
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(58, 107, 53, 0.1);
+  border-left: 2px solid var(--green);
+  background: rgba(58, 107, 53, 0.04) !important;
+  text-align: center;
+  line-height: 1.5;
+  vertical-align: top;
+}
+
+/* Footnote */
+.footnote {
+  font-size: 12px;
+  color: var(--gray);
+  font-style: italic;
+  line-height: 1.6;
+  margin-top: 16px;
+  max-width: 700px;
+}
+
+/* CTA Bar */
+.ctaBar {
+  margin-top: 32px;
+  background: var(--green);
+  border-radius: var(--radius-lg);
+  padding: 24px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.ctaBarText {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+}
+
+.ctaBarBtn {
+  background: white;
+  color: var(--green-dark);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px 24px;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.ctaBarBtn:hover {
+  background: var(--cream);
+}
+
+@media (max-width: 900px) {
+  .section { padding: 60px 20px; }
+  .ctaBar { flex-direction: column; text-align: center; }
+}

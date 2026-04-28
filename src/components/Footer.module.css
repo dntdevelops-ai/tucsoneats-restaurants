@@ -13,15 +13,17 @@
   gap: 24px;
 }
 
-.logo {
-  font-family: var(--font-display);
-  font-size: 18px;
-  font-weight: 700;
-  color: white;
-  margin-bottom: 6px;
+.logoWrap {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
 }
 
-.logoAccent { color: var(--pink-light); }
+.logoImg {
+  width: auto;
+  height: 32px;
+  object-fit: contain;
+}
 
 .sub {
   font-size: 11px;

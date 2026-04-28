@@ -1,57 +1,61 @@
+/* ── Section shell ────────────────────────────────── */
 .hero {
-  background: var(--black);
   position: relative;
   overflow: hidden;
-  padding: 80px 40px 100px;
-  min-height: 560px;
+  min-height: 580px;
   display: flex;
   align-items: center;
+  padding: 80px 40px 100px;
 }
 
+/* ── Desert grid SVG ─────────────────────────────── */
 .grid {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.06;
+  opacity: 0.04;
+  z-index: 0;
 }
 
-.pinkBlob {
+/* ── Video background ─────────────────────────────── */
+.videoBg {
   position: absolute;
-  top: -60px;
-  right: -60px;
-  width: 420px;
-  height: 420px;
-  background: var(--pink);
-  border-radius: 50% 30% 50% 50%;
-  opacity: 0.15;
-  pointer-events: none;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
 }
 
-.greenBlob {
+/* ── Dark overlay ─────────────────────────────────── */
+.overlay {
   position: absolute;
-  bottom: -80px;
-  left: -40px;
-  width: 320px;
-  height: 320px;
-  background: var(--green);
-  border-radius: 50% 50% 30% 50%;
-  opacity: 0.18;
-  pointer-events: none;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    135deg,
+    rgba(28, 28, 28, 0.88) 0%,
+    rgba(28, 28, 28, 0.70) 55%,
+    rgba(28, 28, 28, 0.50) 100%
+  );
 }
 
+/* ── Left content ─────────────────────────────────── */
 .content {
   position: relative;
   z-index: 2;
   max-width: 620px;
 }
 
+/* ── Badge ────────────────────────────────────────── */
 .badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(212, 46, 126, 0.15);
-  border: 1px solid rgba(212, 46, 126, 0.35);
+  background: rgba(212, 46, 126, 0.2);
+  border: 1px solid rgba(212, 46, 126, 0.45);
   border-radius: var(--radius-pill);
   padding: 6px 16px;
   margin-bottom: 28px;
@@ -62,69 +66,65 @@
   height: 7px;
   background: var(--pink);
   border-radius: 50%;
-  animation: pulse 2s infinite;
   flex-shrink: 0;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50%       { opacity: 0.5; transform: scale(1.3); }
+  animation: pulse 2s infinite;
 }
 
 .badgeText {
   font-size: 12px;
   font-weight: 600;
   color: var(--pink-light);
-  letter-spacing: 0.3px;
 }
 
+/* ── Headline ─────────────────────────────────────── */
 .headline {
   font-family: var(--font-display);
-  font-size: clamp(36px, 5vw, 58px);
+  font-size: clamp(34px, 5vw, 56px);
   font-weight: 800;
   color: white;
   line-height: 1.05;
   margin-bottom: 12px;
 }
 
-.headline em {
-  color: var(--pink);
-  font-style: normal;
+.headlineLine {
+  display: inline-block;
 }
 
+/* ── Subhead ──────────────────────────────────────── */
 .sub {
   font-size: 18px;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.75);
   margin-bottom: 18px;
-  letter-spacing: 0.3px;
 }
 
+/* ── Body copy ────────────────────────────────────── */
 .body {
   font-size: 15px;
-  color: rgba(255, 255, 255, 0.58);
+  color: rgba(255, 255, 255, 0.68);
   line-height: 1.75;
   margin-bottom: 36px;
   max-width: 520px;
 }
 
+/* ── CTAs ─────────────────────────────────────────── */
 .actions {
   display: flex;
+  flex-direction: row;
   gap: 12px;
   flex-wrap: wrap;
 }
 
 .btnPrimary {
+  display: inline-block;
   background: var(--pink);
   color: white;
-  font-family: var(--font-body);
   font-size: 15px;
   font-weight: 700;
   padding: 14px 28px;
   border-radius: var(--radius-md);
   text-decoration: none;
   transition: background 0.2s, transform 0.15s;
-  display: inline-block;
 }
 
 .btnPrimary:hover {
@@ -132,26 +132,25 @@
   transform: translateY(-1px);
 }
 
-.btnOutline {
+.btnGhost {
+  display: inline-block;
   background: transparent;
   color: white;
-  font-family: var(--font-body);
   font-size: 15px;
   font-weight: 600;
   padding: 14px 28px;
   border-radius: var(--radius-md);
-  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
   text-decoration: none;
-  transition: all 0.2s;
-  display: inline-block;
+  transition: background 0.2s, border-color 0.2s;
 }
 
-.btnOutline:hover {
-  border-color: rgba(255, 255, 255, 0.5);
-  background: rgba(255, 255, 255, 0.06);
+.btnGhost:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.55);
 }
 
-/* Stats panel */
+/* ── Right stats ──────────────────────────────────── */
 .stats {
   position: absolute;
   right: 40px;
@@ -164,8 +163,10 @@
 }
 
 .stat {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-lg);
   padding: 20px 24px;
   text-align: center;
@@ -181,19 +182,97 @@
   margin-bottom: 6px;
 }
 
-.statNum.pink  { color: var(--pink); }
-.statNum.green { color: #6dbf68; }
+.statNum.pink       { color: var(--pink); }
+.statNum.greenAccent { color: #6dbf68; }
 
 .statLabel {
   font-size: 11px;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.5);
   font-weight: 500;
-  letter-spacing: 0.5px;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
   line-height: 1.4;
 }
 
+/* ── Keyframes ────────────────────────────────────── */
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(1.3); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-28px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes riseUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(28px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ── Entrance animations ──────────────────────────── */
+.animBadge {
+  opacity: 0;
+  animation: slideInLeft 0.6s ease 0.1s both;
+}
+
+.animLine1 {
+  opacity: 0;
+  animation: riseUp 0.7s ease 0.35s both;
+}
+
+.animLine2 {
+  opacity: 0;
+  animation: riseUp 0.7s ease 0.55s both;
+}
+
+.animSub {
+  opacity: 0;
+  animation: riseUp 0.6s ease 0.75s both;
+}
+
+.animBody {
+  opacity: 0;
+  animation: fadeIn 0.6s ease 0.95s both;
+}
+
+.animActions {
+  opacity: 0;
+  animation: riseUp 0.6s ease 1.1s both;
+}
+
+.animStat1 {
+  opacity: 0;
+  animation: slideInRight 0.6s ease 0.6s both;
+}
+
+.animStat2 {
+  opacity: 0;
+  animation: slideInRight 0.6s ease 0.78s both;
+}
+
+.animStat3 {
+  opacity: 0;
+  animation: slideInRight 0.6s ease 0.96s both;
+}
+
+/* ── Responsive ───────────────────────────────────── */
 @media (max-width: 900px) {
-  .hero { padding: 60px 20px 80px; }
-  .stats { display: none; }
+  .hero {
+    padding: 60px 20px 80px;
+  }
+
+  .stats {
+    display: none;
+  }
 }

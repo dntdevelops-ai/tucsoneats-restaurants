@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import styles from './Footer.module.css'
 
 export default function Footer() {
@@ -6,11 +7,11 @@ export default function Footer() {
       <div className={styles.accentRule} />
       <footer className={styles.footer}>
         <div>
-          <div className={styles.logo}>
-            TucsonEats<span className={styles.logoAccent}>.com</span>
+          <div className={styles.logoWrap}>
+            <Image src="/logo.png" alt="TucsonEats" width={140} height={36} className={styles.logoImg} />
           </div>
           <div className={styles.sub}>
-            Brand Guidelines v1.0 · 2025 · Supporting local restaurants in Tucson, Arizona
+            2025 · Supporting local restaurants in Tucson, Arizona
           </div>
         </div>
         <div className={styles.links}>
